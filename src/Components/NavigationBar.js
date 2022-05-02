@@ -8,10 +8,10 @@ const NavigationBar = () => {
     const navigate = useNavigate();
     const navigateHandler = () => {
         if (authCtx.isLoggedIn) {
-            navigate({ pathname: '/joinasteacher' }, { replace: true });
+            navigate({ pathname: '/joinasteacher' }, { replace: false });
         }
         else {
-            navigate({ pathname: '/login' }, { replace: true });
+            navigate({ pathname: '/login' }, { replace: false });
         }
     }
     return (
