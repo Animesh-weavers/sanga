@@ -9,15 +9,26 @@ import ChangePassword from './Components/ChangePassword';
 import ForgetPassword from './Components/ForgetPassword';
 import AuthContext from './Auth/auth-context';
 import { Navigate } from 'react-router-dom';
+import All from './Components/All.js';
+import Art from './Components/Art';
+import Dance from './Components/Dance';
+import Music from './Components/Music';
+import Yoga from './Components/Yoga';
 
 const App = () => {
   const authCtx = useContext(AuthContext);
-  
+
   return (
     <>
       <NavigationBar />
       <Routes>
-        <Route path='/' element={<FindClasses />} />
+        <Route path='/' element={<FindClasses />}>
+          <Route index element={<All />} />
+          <Route path='arts' element={<Art />} />
+          <Route path='dance' element={<Dance />} />
+          <Route path='music' element={<Music />} />
+          <Route path='yoga' element={<Yoga />} />
+        </Route>
         {authCtx.isLoggedIn && <Route path='/joinasteacher' element={<JoinAsATeacher />} />}
         {!authCtx.isLoggedIn && <Route path='/login' element={<Login />} />}
         {!authCtx.isLoggedIn && <Route path='/signup' element={<Signup />} />}
