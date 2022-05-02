@@ -8,20 +8,22 @@ import Signup from './Components/Signup';
 import ChangePassword from './Components/ChangePassword';
 import ForgetPassword from './Components/ForgetPassword';
 import AuthContext from './Auth/auth-context';
+import { Navigate } from 'react-router-dom';
 
 const App = () => {
-  const authCtx=useContext(AuthContext);
-
+  const authCtx = useContext(AuthContext);
+  
   return (
     <>
       <NavigationBar />
       <Routes>
         <Route path='/' element={<FindClasses />} />
-       {authCtx.isLoggedIn && <Route path='/joinasteacher' element={<JoinAsATeacher />} />}
+        {authCtx.isLoggedIn && <Route path='/joinasteacher' element={<JoinAsATeacher />} />}
         {!authCtx.isLoggedIn && <Route path='/login' element={<Login />} />}
         {!authCtx.isLoggedIn && <Route path='/signup' element={<Signup />} />}
         {authCtx.isLoggedIn && <Route path='/changepassword' element={<ChangePassword />} />}
         {!authCtx.isLoggedIn && <Route path='/forgetpassword' element={<ForgetPassword />} />}
+        <Route path='*' element={<Navigate replace to="/" />} />
       </Routes>
     </>
   )
