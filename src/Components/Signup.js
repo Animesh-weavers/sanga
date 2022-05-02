@@ -52,7 +52,7 @@ const Signup = () => {
         axios(reqOptions)
             .then((response) => {
                 // console.log(response.data.refreshToken);
-                authCtx.login(response.data.refreshToken);
+                authCtx.login(response.data.idToken);
                 setIsShowLoader(false);
                 navigate({ pathname: "/" }, { replace: true });
             })

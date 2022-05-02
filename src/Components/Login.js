@@ -54,7 +54,7 @@ const Login = () => {
         axios(reqOptions)
             .then((response) => {
                 setIsShowLoader(false);
-                authCtx.login(response.data.refreshToken);
+                authCtx.login(response.data.idToken);
                 navigate({ pathname: "/" }, { replace: true });
             })
             .catch((error) => {
