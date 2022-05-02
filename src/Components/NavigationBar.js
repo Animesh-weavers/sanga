@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { Navbar, Container, Nav, Button, Form, FormControl } from 'react-bootstrap'
+import AuthContext from '../Auth/auth-context';
 const NavigationBar = () => {
+    const authCtx = useContext(AuthContext);
     return (
         <Navbar bg="light" expand="lg">
             <Container fluid>
@@ -24,7 +26,8 @@ const NavigationBar = () => {
                     >
                         <Nav.Link as={Link} to='/'>Find Classes</Nav.Link>
                         <Nav.Link as={Link} to='/joinasteacher'>Join as a teacher</Nav.Link>
-                        <Nav.Link style={{ background: '#FBDE59', borderRadius: '10px', paddingRight: '2rem', paddingLeft: '2rem', color: 'black', fontWeight: 'bold' }} as={Link} to='/login'>Login</Nav.Link>
+                        {!authCtx.isLoggedIn && <Nav.Link style={{ background: '#FBDE59', borderRadius: '10px', paddingRight: '2rem', paddingLeft: '2rem', color: 'black', fontWeight: 'bold' }} as={Link} to='/login'>Login</Nav.Link>}
+                        {authCtx.isLoggedIn && <Nav.Link style={{ background: '#FBDE59', borderRadius: '10px', paddingRight: '2rem', paddingLeft: '2rem', color: 'black', fontWeight: 'bold' }} onClick={()=>authCtx.logout()}>Logout</Nav.Link>}
                     </Nav>
 
                 </Navbar.Collapse>
