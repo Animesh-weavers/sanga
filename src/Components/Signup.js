@@ -51,7 +51,8 @@ const Signup = () => {
 
         axios(reqOptions)
             .then((response) => {
-                authCtx.login(response.data.idToken);
+                // console.log(response.data.refreshToken);
+                authCtx.login(response.data.refreshToken);
                 setIsShowLoader(false);
                 navigate({ pathname: "/" }, { replace: true });
             })
@@ -145,7 +146,7 @@ const Signup = () => {
                         >
                             Signup
                         </Button>
-                        <Link to='/login' style={{color:'black'}} >already have an account?</Link>
+                        <Link to='/login' style={{ color: 'black' }} >already have an account?</Link>
                     </Form>
                 </div>
                 <div className="image" style={{ textAlign: "center" }}>
