@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import AuthContext from "../Auth/auth-context";
 
 const All = () => {
+  const authCtx=useContext(AuthContext);
   const [data, setData] = useState([
     {
       id: 0,
@@ -52,12 +54,12 @@ const All = () => {
                   <Button style={{ margin: "1rem" }}>Details</Button>
                 </Link>
 
-                <Link
-                  to={`/${item.id}`}
+                {!authCtx.isLoggedIn && <Link
+                  to='/signup'
                   style={{ color: "white", textDecoration: "none" }}
                 >
-                  <Button style={{ margin: "1rem" }}>Details</Button>
-                </Link>
+                  <Button style={{ margin: "1rem" }}>Signup me</Button>
+                </Link>}
               </div>
             </Card.Body>
           </Card>

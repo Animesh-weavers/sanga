@@ -15,6 +15,9 @@ import Dance from "./Components/Dance";
 import Music from "./Components/Music";
 import Yoga from "./Components/Yoga";
 import Details from "./Components/Details";
+import Faq from "./Components/Faq";
+import Terms from "./Components/Terms";
+import PrivacyPolicy from "./Components/PrivacyPolicy";
 
 const App = () => {
   const authCtx = useContext(AuthContext);
@@ -42,6 +45,9 @@ const App = () => {
         {!authCtx.isLoggedIn && (
           <Route path="/forgetpassword" element={<ForgetPassword />} />
         )}
+        <Route path="/faq" element={<Faq />} />
+        <Route path="/terms&conditions" element={<Terms />} />
+        <Route path="/privacypolicy" element={<PrivacyPolicy />} />
         <Route path="*" element={<Navigate replace to="/" />} />
       </Routes>
     </>
