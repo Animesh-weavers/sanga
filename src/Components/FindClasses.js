@@ -39,7 +39,9 @@ const FindClasses = () => {
           Start Free Trial
         </button>
       </div>
-      <div>
+      <div style={{textAlign:'center'}}>
+        <h1>Live Online Classes</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis eligendi dignissimos dolor iure optio nesciunt a ratione quam architecto, earum, saepe assumenda neque sunt rem! Architecto rem tempore culpa nobis!</p>
         <Navbar bg="dark" variant="dark">
           <Container>
             <Nav className="me-auto">
